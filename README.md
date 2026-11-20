@@ -2,6 +2,16 @@
 ### ***Учебный проект из курса [React с нуля для начинающих](https://www.udemy.com/course/react-from-scratch/)***  
 **Автор курса: [Михаил Непомнящий](https://www.udemy.com/user/mikhail-nepomniashchii/)**
 
+##  Докер билд и запуск
+
+Билд образа
+
+   docker build -t reactshop:latest . 
+   
+Запуск образа
+
+   docker run -dp 3000:3000 --name reactshop reactshop:latest
+
 ## Описание проекта
 React Shop — это эмуляция интернет-магазина, на которой пользователи могут добавлять или убирать товары из корзины.
 
