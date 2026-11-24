@@ -6,11 +6,12 @@
 
 Билд образа
 
-   docker build -t reactshop:latest . 
+   docker build -t demo7reactshop:latest . 
    
 Запуск образа
 
-   docker run -dp 3000:3000 --name reactshop reactshop:latest
+   docker run -dp 80:3000 --name reactshop reactshop:latest
+   Запуск  из докер.композ в папке demo9compose  
 
 ## Описание проекта
 React Shop — это эмуляция интернет-магазина, на которой пользователи могут добавлять или убирать товары из корзины.

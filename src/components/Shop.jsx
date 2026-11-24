@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import { API_KEY, API_URL } from '../config';
 
 import { GoodsList } from './GoodsList';
 import { Cart } from './Cart';
 import { BasketList } from './BasketList';
 import { Alert } from './Alert';
 import { Preloader } from './Preloader';
+import { getMainProducts, getProductId } from '../util/api';
 
 function Shop() {
   const [goods, setGoods] = useState([]);
@@ -81,14 +81,16 @@ function Shop() {
   };
 
   useEffect(function getGoods() {
-    fetch(API_URL, {
-      headers: {
-        Authorization: API_KEY,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        data.featured && setGoods(data.featured);
+    getMainProducts()
+      .then((res) => {
+        if (res.data._embedded.product) {
+          const updatedProducts = res.data._embedded.product.map(product => {
+            const id = getProductId(product._links);
+            return { ...product, id: id };
+          });
+          setGoods(updatedProducts);
+          setLoading(false);
+        }
         setLoading(false);
       });
   }, []);
