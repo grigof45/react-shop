@@ -2,9 +2,8 @@ import { useState, useEffect } from 'react';
 import { API_KEY, API_URL } from '../config';
 import axios from 'axios';
 
-// Создаём экземпляр Axios с базовым URL
+
 const apiClient = axios.create({
-  //baseURL: 'https://api.example.com/v1',
   baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
