@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { API_KEY, API_URL } from '../config';
 import axios from 'axios';
 

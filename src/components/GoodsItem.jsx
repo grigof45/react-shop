@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { getProductId } from '../util/api';
 
 function GoodsItem(props) {
   const { id, productName, description, price, image, addToBasket = Function.prototype } = props;
